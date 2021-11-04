@@ -8,76 +8,75 @@ namespace Owoda
 {
     public class NutOfficer
     {
-        public int DailyTicket { get; set; }
+        double DailyAmount = 100;
+        
 
         public int MonthlyTicket { get; set; }
 
-        public int AccountType { get; set; }
+        public int DailyTicket { get; set; }
 
-        int Amount = 0;
+        public double DailyTicketAmount { get; set; }
+
+        public double MonthlyTicketAmount{get; set;}
+
+        public double TotalExpenses { get; set; }
+
+        double Amount = 0;
+      
 
 
         public void Menu()
         {
-            NutOfficer officer = new NutOfficer();
+            
             Console.WriteLine("Please what type of ticket do you want to purchase \n Choose the following options: \n 1. Daily \n 2. Monthly \n 3. Generate Total Sales");
-            AccountType = Convert.ToInt32(Console.ReadLine());
-            
 
-            
-            if (AccountType == 1)
-            {
-                // NutOfficer officer = new NutOfficer();
-                officer.DailyAmount();
-            }
-            else if (AccountType == 2)
-            {
-                officer.MonthlyAmount();
-            }
-            else if (AccountType == 3)
-            {
+            int choice = Convert.ToInt32(Console.ReadLine());
 
-            }
-            else
+            if (choice == 1)
             {
-                Console.WriteLine("You have entered an invalid selection");
+                DailyTicket++;
+                //  Console.WriteLine("Your ticket count is" + DailyTicket);
+                DayAmount();
                 
+                
+            }
+            else if (choice == 2)
+            {
+                MonthlyTicket++;
+                MonthAmount();
 
             }
+            else if(choice == 3)
+            {
+                TotalSales();
+            }
 
+        } 
 
-        }
-
-        // public void Choice(int AccountType)
-        // {
-
-        //  }
-
-        public void DailyAmount()
+        public void DayAmount()
         {
-           
-
-            DailyTicket = 100;
-            Amount += DailyTicket;
-            Console.WriteLine("Your input has been acknowledged and it is " + Amount);
-           
-
+          DailyTicketAmount =  DailyTicket * DailyAmount;
+            Console.WriteLine  ("Your daily ticket count is " + DailyTicket + " and your total daily ticket sales is " + DailyTicketAmount);
             Menu();
-            
+
         }
 
-        public void MonthlyAmount()
+        public void MonthAmount()
         {
-            MonthlyTicket = 1500;
-            Amount += MonthlyTicket;
-            Console.WriteLine("Your input has been acknowledged and it is " + Amount);
-
-            //return amount;
+            MonthlyTicketAmount = ((DailyAmount * 30) / 2) * MonthlyTicket;
+            Console.WriteLine("Your monthly  ticket count is " + MonthlyTicket + " and your total monthly ticket sales is " + MonthlyTicketAmount);
             Menu();
-            
         }
 
-        
+        public void TotalSales()
+        {
+            var Total = (DailyTicketAmount + MonthlyTicketAmount);
+            Amount = Total - (Total * 0.65);
+            TotalExpenses = Amount;
+            Console.WriteLine("Your total sales amount is " + Total + " and your amount after returns is " + TotalExpenses);
+
+
+        }
     }
 
 }
