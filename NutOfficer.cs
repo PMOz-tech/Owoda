@@ -21,19 +21,23 @@ namespace Owoda
 
         public double TotalExpenses { get; set; }
 
+        public int RandomStrings { get; set; }
+
+
         double Amount = 0;
       
 
 
         public void Menu()
         {
-            
+            GenerateRandomStrings();
             Console.WriteLine("Please what type of ticket do you want to purchase \n Choose the following options: \n 1. Daily \n 2. Monthly \n 3. Generate Total Sales");
 
             int choice = Convert.ToInt32(Console.ReadLine());
 
             if (choice == 1)
             {
+                
                 DailyTicket++;
                 //  Console.WriteLine("Your ticket count is" + DailyTicket);
                 DayAmount();
@@ -57,6 +61,7 @@ namespace Owoda
         {
           DailyTicketAmount =  DailyTicket * DailyAmount;
             Console.WriteLine  ("Your daily ticket count is " + DailyTicket + " and your total daily ticket sales is " + DailyTicketAmount);
+            Console.WriteLine("Ticket unique id is " + RandomStrings);
             Menu();
 
         }
@@ -65,6 +70,7 @@ namespace Owoda
         {
             MonthlyTicketAmount = ((DailyAmount * 30) / 2) * MonthlyTicket;
             Console.WriteLine("Your monthly  ticket count is " + MonthlyTicket + " and your total monthly ticket sales is " + MonthlyTicketAmount);
+            Console.WriteLine("Ticket unique id is " + RandomStrings);
             Menu();
         }
 
@@ -76,6 +82,16 @@ namespace Owoda
             Console.WriteLine("Your total sales amount is " + Total + " and your amount after returns is " + TotalExpenses);
 
 
+        }
+
+        public void GenerateRandomStrings()
+        {
+            Random random = new Random();
+            for (int j  = 0; j < 4; j++)
+            {
+                
+                RandomStrings =  random.Next();
+            }
         }
     }
 
