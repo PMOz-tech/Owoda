@@ -81,7 +81,7 @@ namespace Owoda
             var Total = (DailyTicketAmount + MonthlyTicketAmount);
             Amount = Total - (Total * 0.65);
             TotalExpenses = Amount;
-            Console.WriteLine("Your total sales amount is " + Total +  " The amount you remit to your chairman is " + Amount + " and your amount after returns is " + TotalExpenses);
+            Console.WriteLine("Your total sales amount is " + Total +  " and your amount after returns is " + TotalExpenses);
 
 
         }
