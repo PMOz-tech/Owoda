@@ -23,6 +23,8 @@ namespace Owoda
 
         public int RandomStrings { get; set; }
 
+      //  public int TotalNumTicket;
+
 
         double Amount = 0;
       
@@ -55,7 +57,10 @@ namespace Owoda
             {
                 TotalSales();
             }
-           
+            else
+            {
+                Console.WriteLine("Invalid Selection");
+            }
 
         } 
 
@@ -98,12 +103,13 @@ namespace Owoda
 
         public void GenerateReceipt()
         {
-          //while ()
-          //  {
-          //      Console.WriteLine("Your daily ticket count is " + DailyTicket + " and your total daily ticket sales is " + DailyTicketAmount);
-          //        Console.WriteLine("Ticket unique id is " + RandomStrings);
-          //  }
-           
+          
+        }
+
+        public void TotalTicketSold()
+        {
+           // TotalNumTicket = DailyTicket + MonthlyTicket;
+
         }
     }
 
