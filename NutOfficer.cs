@@ -30,7 +30,7 @@ namespace Owoda
 
         public void Menu()
         {
-            GenerateRandomStrings();
+            GenerateRandomNumber();
             Console.WriteLine("Please what type of ticket do you want to purchase \n Choose the following options: \n 1. Daily \n 2. Monthly \n 3. Generate Total Sales");
 
             int choice = Convert.ToInt32(Console.ReadLine());
@@ -39,8 +39,9 @@ namespace Owoda
             {
                 
                 DailyTicket++;
-                //  Console.WriteLine("Your ticket count is" + DailyTicket);
+                // Console.WriteLine("Your ticket count is" + DailyTicket);
                 DayAmount();
+             //  GenerateReceipt(choice);
                 
                 
             }
@@ -54,6 +55,7 @@ namespace Owoda
             {
                 TotalSales();
             }
+           
 
         } 
 
@@ -79,12 +81,12 @@ namespace Owoda
             var Total = (DailyTicketAmount + MonthlyTicketAmount);
             Amount = Total - (Total * 0.65);
             TotalExpenses = Amount;
-            Console.WriteLine("Your total sales amount is " + Total + " and your amount after returns is " + TotalExpenses);
+            Console.WriteLine("Your total sales amount is " + Total +  " The amount you remit to your chairman is " + Amount + " and your amount after returns is " + TotalExpenses);
 
 
         }
 
-        public void GenerateRandomStrings()
+        public void GenerateRandomNumber()
         {
             Random random = new Random();
             for (int j  = 0; j < 4; j++)
@@ -92,6 +94,16 @@ namespace Owoda
                 
                 RandomStrings =  random.Next();
             }
+        }
+
+        public void GenerateReceipt()
+        {
+          //while ()
+          //  {
+          //      Console.WriteLine("Your daily ticket count is " + DailyTicket + " and your total daily ticket sales is " + DailyTicketAmount);
+          //        Console.WriteLine("Ticket unique id is " + RandomStrings);
+          //  }
+           
         }
     }
 
